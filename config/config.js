@@ -3,7 +3,7 @@ const path = require('path')
 // get the NODE_ENV
 const NODE_ENV = process.env.NODE_ENV || 'default'
 // get the values maintained in config json file
-let configFilePath = 'data/config.json'
+let configFilePath = path.resolve(__dirname, 'data/config.json')
 if (NODE_ENV !== 'default') {
     configFilePath = '/etc/config/config.json'
 }
