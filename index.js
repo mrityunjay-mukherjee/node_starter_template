@@ -79,6 +79,9 @@ const routers = [{
 
 routers.forEach((route) => {
   let _path = `${basePath}${route.path}`
+  if(route.path === '/healthz'){
+    _path = '/healthz'
+  }
   checkCORS ? app.use(_path, cors(corsOptions), route.router) : app.use(_path, route.router)
 })
 // Response handler

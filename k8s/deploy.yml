@@ -40,7 +40,7 @@ spec:
               cpu: "1000m"
           livenessProbe:
             httpGet:
-              path: /starter/template/healthz
+              path: /healthz
               port: 5000
             initialDelaySeconds: 15
             failureThreshold: 2
