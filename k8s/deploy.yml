@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node_starter_template
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: node_starter_template
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        name: node_starter_template
+    spec:
+      containers:
+        - name: node_starter_template
+          image: mrityunjaymukherjee/node_starter_template:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          env:
+            - name: NODE_ENV
+              value: development
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "500m"
+            limits:
+              memory: "256Mi"
+              cpu: "1000m"
+          livenessProbe:
+            httpGet:
+              path: /starter/template/healthz
+              port: 5000
+            initialDelaySeconds: 15
+            failureThreshold: 2
+            periodSeconds: 15
+    volumes:
+      - name: config-volume
+        configMap:
+          # Provide the name of the ConfigMap containing the files you want
+          # to add to the container
+          name: node_starter_template

@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: node_starter_template
+  namespace: default
+data:
+  # refer the config/data/config.json for content
+  config.json: |-
+    {
+    "API_BASE_PATH": "/starter/template",
+    "PORT": 5000,
+    "MONGO_URL": "mongodb://localhost:27017",
+    "MONGO_DB": "/starter",
+    "MONGO_OPTIONS": "?useNewParser=true&checkKeys=false&useCreateIndex=true",
+    "REDIS_HOST": "localhost",
+    "REDIS_PORT": 6379,
+    "REDIS_OPTIONS": {},
+    "DEBUG": true,
+    "SECRET": "longlivenodejsafterallitsjavascript3cheershiphiphurray",
+    "COOKIE_NAME": "xxx_xsprs_sid",
+    "COOKIE_PATH": "/",
+    "COOKIE_DOMAIN": "localhost",
+    "COOKIE_AGE": 3600000,
+    "CORS_ENABLED": false,
+    "CORS_WHITELIST": ["http://localhost"],
+    "CORS_ALLOWEDHEADERS": ["Content-Type", "Authorization", "X-Total-Count", "x-access-token", "Content-Range"]
+}
