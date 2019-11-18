@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: node_starter_template
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/app-root: /starter/template
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /
+          backend:
+            serviceName: node_starter_template
+            servicePort: 5000
