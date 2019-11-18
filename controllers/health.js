@@ -1,9 +1,11 @@
+const constants = require('../constants')
+
 module.exports.get = () => {
     return new Promise((resolve, reject) => {
         resolve({
-            code: 200,
-            message: 'Alive \'n Kickin',
-            data: {}
+            code: constants.HTTP_200,
+            message: constants.MSG_ALIVE,
+            data: null
         })
     })
 }

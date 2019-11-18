@@ -11,3 +11,4 @@ module.exports.ERROR = 'error'
 //  Generic
 module.exports.CONTENT_TYPE_APPLICATION_XML = 'application/xml'
 module.exports.DEFAULT_ENCODING = 'utf8'
+module.exports.MSG_ALIVE = 'Alive \'n Kickin'
